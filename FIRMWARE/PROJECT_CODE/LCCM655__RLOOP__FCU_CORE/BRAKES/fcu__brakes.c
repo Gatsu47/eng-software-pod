@@ -88,6 +88,8 @@ void vFCU_BRAKES__Process(void)
 	//process the switches
 	vFCU_BRAKES_SW__Process();
 
+	sFCU.eBrakeStates = BRAKE_STATE__TEST;
+
 	switch(sFCU.eBrakeStates)
 	{
 
@@ -306,7 +308,7 @@ void vFCU_BRAKES__Move_IBeam_Distance_mm(Luint32 u32Distance)
 	//temp
 
 	//Tell the movement planner to go
-	vFCU_BRAKES_STEP__Move(2000, 2000);
+	vFCU_BRAKES_STEP__Move(10000, 10000);
 
 	//change state
 	sFCU.eBrakeStates = BRAKE_STATE__BEGIN_MOVE;
